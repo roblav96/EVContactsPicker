@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc class EVBubbleColor: NSObject {
+class EVBubbleColor: NSObject {
 
     var gradientTop : UIColor?
     var gradientBottom : UIColor?

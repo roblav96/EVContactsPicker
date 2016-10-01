@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-@objc public protocol EVCContactsPickerDataSourceProtocol : class {
+public protocol EVCContactsPickerDataSourceProtocol : class {
     
         
     
 }
 
-@objc public class EVDataSource : NSObject {
+open class EVDataSource : NSObject {
      fileprivate weak var tableView: UITableView?
 }
 

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import QuartzCore
 
-@objc class EVContactBubble: UIView, UITextViewDelegate {
+class EVContactBubble: UIView, UITextViewDelegate {
     var name : String?
     var label : UILabel?
     var textView : UITextView?
@@ -90,7 +90,7 @@ import QuartzCore
     }
     
     func select() -> Void {
-        self.delegate?.contactBubbleWasSelected!(self)
+        self.delegate?.contactBubbleWasSelected(self)
         
         let viewLayer = self.layer
         
@@ -152,13 +152,13 @@ import QuartzCore
         }
         
         if(textView.text == "" && text == "") {
-            self.delegate?.contactBubbleShouldBeRemoved!(self)
+            self.delegate?.contactBubbleShouldBeRemoved(self)
         }
         
         if( self.isSelected ) {
             self.textView?.text = ""
             self.unSelect()
-            self.delegate?.contactBubbleWasUnSelected!(self)
+            self.delegate?.contactBubbleWasUnSelected(self)
         }
         
         return true

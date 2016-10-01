@@ -8,8 +8,7 @@
 
 import UIKit
 
-@available(iOS 9.0, *)
-@objc class EVContactsPickerTableViewCell: UITableViewCell {
+class EVContactsPickerTableViewCell: UITableViewCell {
     
     @IBOutlet var fullName : UILabel?
     @IBOutlet var phone : UILabel?

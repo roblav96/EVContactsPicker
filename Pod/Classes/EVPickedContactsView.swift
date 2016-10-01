@@ -8,8 +8,7 @@
 
 import UIKit
 
-@available(iOS 9.0, *)
-@objc class EVPickedContactsView: UIView, EVContactBubbleDelegate, UITextViewDelegate, UIScrollViewDelegate {
+class EVPickedContactsView: UIView, EVContactBubbleDelegate, UITextViewDelegate, UIScrollViewDelegate {
     // MARK: - Private Variables
     
     fileprivate var _shouldSelectTextView = false
