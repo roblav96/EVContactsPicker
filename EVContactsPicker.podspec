@@ -18,12 +18,12 @@ Pod::Spec.new do |s|
                         EVCContactsPickerDataSourceProtocol Protocol.
                        DESC
 
-  s.homepage         = "https://github.com/edwardvalentini/EVContactsPicker"
-  s.screenshots      = ["https://raw.githubusercontent.com/edwardvalentini/EVContactsPicker/master/Screenshots/screenshot0.png", "https://raw.githubusercontent.com/edwardvalentini/EVContactsPicker/master/Screenshots/screenshot1.png"]
+  s.homepage         = "https://github.com/roblav96/EVContactsPicker"
+  s.screenshots      = ["https://raw.githubusercontent.com/roblav96/EVContactsPicker/master/Screenshots/screenshot0.png", "https://raw.githubusercontent.com/roblav96/EVContactsPicker/master/Screenshots/screenshot1.png"]
   s.license          = 'MIT'
   s.author           = { "Edward Valentini" => "edward@interlook.com" }
-  s.source           = { :git => "https://github.com/edwardvalentini/EVContactsPicker.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/edwardvalentini'
+  s.source           = { :git => "https://github.com/roblav96/EVContactsPicker.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/roblav96'
 
   s.platform     = :ios, '9.0'
   s.requires_arc = true
