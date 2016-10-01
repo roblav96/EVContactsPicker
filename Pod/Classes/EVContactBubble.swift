@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import QuartzCore
 
-@available(iOS 9.0, *)
 @objc class EVContactBubble: UIView, UITextViewDelegate {
     var name : String?
     var label : UILabel?

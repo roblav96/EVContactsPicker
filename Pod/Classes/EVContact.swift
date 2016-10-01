@@ -12,7 +12,6 @@ import UIKit
 //    return lhs.identifier == rhs.identifier
 //}
 
-@available(iOS 9.0, *)
 @objc public protocol EVContactProtocol {
     var identifier : String { get set }
     var firstName : String? { get set }
@@ -27,7 +26,6 @@ import UIKit
     func fullname() -> String?
 }
 
-@available(iOS 9.0, *)
 @objc public class EVContact: NSObject, EVContactProtocol {
     public func fullname() -> String? {
         if let firstName = self.firstName, let lastName = self.lastName {
