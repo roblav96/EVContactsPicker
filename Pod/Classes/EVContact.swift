@@ -26,8 +26,8 @@ import UIKit
     func fullname() -> String?
 }
 
-@objc public class EVContact: NSObject, EVContactProtocol {
-    public func fullname() -> String? {
+@objc open class EVContact: NSObject, EVContactProtocol {
+    open func fullname() -> String? {
         if let firstName = self.firstName, let lastName = self.lastName {
             return String(firstName + " " + lastName)
         }
@@ -41,15 +41,15 @@ import UIKit
         return nil
     }
     
-    public var identifier: String
-    public var dateUpdated: Date? = nil
-    public var date: Date? = nil
-    public var selected: Bool = false
-    public var image: UIImage? = nil
-    public var email: String? = nil
-    public var phone: String? = nil
-    public var lastName: String? = nil
-    public var firstName: String? = nil
+    open var identifier: String
+    open var dateUpdated: Date? = nil
+    open var date: Date? = nil
+    open var selected: Bool = false
+    open var image: UIImage? = nil
+    open var email: String? = nil
+    open var phone: String? = nil
+    open var lastName: String? = nil
+    open var firstName: String? = nil
     
     public init(identifier: String) {
         self.identifier = identifier

@@ -96,7 +96,7 @@ class EVPickedContactsView: UIView, EVContactBubbleDelegate, UITextViewDelegate,
     
     func removeAllContacts() -> Void {
         for ( _ , kValue) in self.contacts! {
-            let contactBubble : EVContactBubble = kValue as! EVContactBubble
+            let contactBubble : EVContactBubble = kValue 
             contactBubble.removeFromSuperview()
         }
         
@@ -242,9 +242,9 @@ class EVPickedContactsView: UIView, EVContactBubbleDelegate, UITextViewDelegate,
         if let contactBubble = contacts[contactKey] {
             contactBubble.removeFromSuperview()
             
-            let _ = self.contacts?.removeValue(forKey: contactKey as! NSObject)
+            let _ = self.contacts?.removeValue(forKey: contactKey as NSObject)
             
-            if let foundIndex = self.contactKeys?.index(of: contactKey as! NSObject) {
+            if let foundIndex = self.contactKeys?.index(of: contactKey as NSObject) {
                 self.contactKeys?.remove(at: foundIndex)
             }
             

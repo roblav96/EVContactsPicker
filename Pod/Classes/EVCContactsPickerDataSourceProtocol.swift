@@ -15,7 +15,7 @@ import UIKit
     
 }
 
-@objc public class EVDataSource : NSObject {
+@objc open class EVDataSource : NSObject {
      fileprivate weak var tableView: UITableView?
 }
 

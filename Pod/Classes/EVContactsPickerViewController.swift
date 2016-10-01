@@ -10,7 +10,7 @@ import UIKit
 import Contacts
 import ContactsUI
 
-@objc public class EVContactsPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  EVPickedContactsViewDelegate, CNContactViewControllerDelegate {
+@objc open class EVContactsPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  EVPickedContactsViewDelegate, CNContactViewControllerDelegate {
     
     
     let kKeyboardHeight : CGFloat = 0.0
@@ -23,7 +23,7 @@ import ContactsUI
     var filteredContacts : [EVContactProtocol]? = nil
     var barButton : UIBarButtonItem? = nil
     var useExternal : Bool = false
-    public var maxSelectedContacts : Int = -1 {
+    open var maxSelectedContacts : Int = -1 {
         didSet {
             singleSelection = maxSelectedContacts == 1;
         }
@@ -35,10 +35,10 @@ import ContactsUI
     }
     var externalDataSource : [EVContactProtocol]? = nil
     
-    public var showEmail = true
-    public var showPhone = true
+    open var showEmail = true
+    open var showPhone = true
     
-    public var delegate : EVContactsPickerDelegate?
+    open var delegate : EVContactsPickerDelegate?
     fileprivate var curBundle : Bundle?
 
     
@@ -211,7 +211,7 @@ import ContactsUI
         do {
             try self.store?.enumerateContacts(with: req, usingBlock: { (contact: CNContact, boolprop : UnsafeMutablePointer<ObjCBool> ) -> Void in
                 
-                var tmpContact = EVContact(identifier: contact.identifier)
+                let tmpContact = EVContact(identifier: contact.identifier)
                 tmpContact.firstName = contact.givenName
                 tmpContact.lastName = contact.familyName
                 if (contact.phoneNumbers.count > 0) {
@@ -261,7 +261,7 @@ import ContactsUI
         if( self.useExternal == false ) {
             do {
                 if let tmpContact = try self.store?.unifiedContact(withIdentifier: contact.identifier, keysToFetch: [CNContactEmailAddressesKey as CNKeyDescriptor,CNContactGivenNameKey as CNKeyDescriptor,CNContactFamilyNameKey as CNKeyDescriptor,CNContactImageDataAvailableKey as CNKeyDescriptor,CNContactThumbnailImageDataKey as CNKeyDescriptor,CNContactImageDataKey as CNKeyDescriptor,CNContactPhoneNumbersKey as CNKeyDescriptor]) {
-                    var mutableContact = contact
+                    let mutableContact = contact
                     mutableContact.identifier = tmpContact.identifier
                     mutableContact.firstName = tmpContact.givenName
                     mutableContact.lastName = tmpContact.familyName
@@ -286,7 +286,7 @@ import ContactsUI
                 print("error")
             }
         } else {
-            var mutableContact = contact
+            let mutableContact = contact
             if(mutableContact.image == nil) {
                 mutableContact.image = self.avatarImage
             }
@@ -324,7 +324,7 @@ import ContactsUI
             return cell
         }
         
-        var contact = filteredContacts[indexPath.row]
+        let contact = filteredContacts[indexPath.row]
         
         cell.fullName?.text = contact.fullname()
         
@@ -413,7 +413,7 @@ import ContactsUI
         return indexPath
     }
     
-    private func canAddMoreContacts() -> Bool {
+    fileprivate func canAddMoreContacts() -> Bool {
         return maxSelectedContacts <= 0 || maxSelectedContacts > 0 && maxSelectedContacts > (self.selectedContacts?.count)!;
     }
     
@@ -466,9 +466,9 @@ import ContactsUI
         DispatchQueue.main.asyncAfter(deadline: delayTime, execute: { () -> Void in
             if let del = self.delegate, del is EVContactsPickerDelegate {
                 if let selcontacts = self.selectedContacts {
-                    del.didChooseContacts(selcontacts)
+                    del.didChooseContacts!(selcontacts)
                 } else {
-                    del.didChooseContacts(nil)
+                    del.didChooseContacts!(nil)
                 }
             }
         });
