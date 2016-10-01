@@ -10,9 +10,7 @@ import UIKit
 import Contacts
 import ContactsUI
 
-
-@available(iOS 9.0, *)
-@objc open class EVContactsPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  EVPickedContactsViewDelegate, CNContactViewControllerDelegate {
+@objc public class EVContactsPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  EVPickedContactsViewDelegate, CNContactViewControllerDelegate {
     
     
     let kKeyboardHeight : CGFloat = 0.0
