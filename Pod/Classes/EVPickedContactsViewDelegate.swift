@@ -8,6 +8,8 @@
 
 import Foundation
 
+@available(iOS 9.0, *)
+//@objc
 protocol EVPickedContactsViewDelegate {
     func contactPickerTextViewDidChange(_ textViewText: String) -> Void
     func contactPickerDidRemoveContact(_ contact: EVContactProtocol) -> Void

@@ -12,7 +12,8 @@ import UIKit
 //    return lhs.identifier == rhs.identifier
 //}
 
-public protocol EVContactProtocol {
+@available(iOS 9.0, *)
+@objc public protocol EVContactProtocol {
     var identifier : String { get set }
     var firstName : String? { get set }
     var lastName : String? { get set }
@@ -26,7 +27,8 @@ public protocol EVContactProtocol {
     func fullname() -> String?
 }
 
-extension EVContactProtocol {
+@available(iOS 9.0, *)
+@objc public class EVContact: NSObject, EVContactProtocol {
     public func fullname() -> String? {
         if let firstName = self.firstName, let lastName = self.lastName {
             return String(firstName + " " + lastName)
@@ -40,11 +42,7 @@ extension EVContactProtocol {
         }
         return nil
     }
-}
 
-
-
-public struct EVContact: EVContactProtocol {
     public var identifier: String
     public var dateUpdated: Date? = nil
     public var date: Date? = nil

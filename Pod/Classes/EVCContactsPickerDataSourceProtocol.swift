@@ -15,7 +15,7 @@ public protocol EVCContactsPickerDataSourceProtocol : class {
     
 }
 
-open class EVDataSource : NSObject {
+public class EVDataSource : NSObject {
      fileprivate weak var tableView: UITableView?
 }
 
